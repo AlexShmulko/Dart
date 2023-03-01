@@ -14,11 +14,9 @@ Future<void> main() async {
     final stringData = await response.transform(utf8.decoder).join();
 
     final List<dynamic> dataList = jsonDecode(stringData)['players'];
-    for (int i = 0; i< dataList.length; i++){
-      final item = dataList[i];
-      print(item['nickname']);
-    }
-
+      for (final item in dataList){
+        print(item['nickname']);
+      }
   } finally {
     client.close();
   }
